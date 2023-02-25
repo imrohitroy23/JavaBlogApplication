@@ -10,7 +10,7 @@ import com.example.demo.Model.Category;
 import com.example.demo.Model.Post;
 
 public interface PostRepo extends JpaRepository<Post,Integer> {
- 
-    public List<Post> findByCategory(Category category); 
-    public List<Post> findByUser(User user);
+    List<Post> findByUser(User user);
+	List<Post> findByCategory(Category category);
+
 }

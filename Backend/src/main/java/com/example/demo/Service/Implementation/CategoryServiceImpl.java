@@ -1,7 +1,7 @@
 package com.example.demo.Service.Implementation;
 
 import java.util.List;
-import java.util.stream.Collector;
+
 import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
@@ -53,7 +53,6 @@ private ModelMapper modelmap;
     @Override
     public CategoryDto getCategory(Integer categoryId) {
         Category cat=this.categoryRepo.findById(categoryId).orElseThrow(()-> new ResourceNotFoundException("Category", "Category Id", categoryId));
-
         return this.modelmap.map(cat,CategoryDto.class);
     }
 
