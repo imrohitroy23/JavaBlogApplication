@@ -1,6 +1,7 @@
 package com.example.demo.Controllers;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.validation.Valid;
 
@@ -17,6 +18,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.Model.User;
+import com.example.demo.Payloads.ApiResponse;
+import com.example.demo.Payloads.UserDto;
 import com.example.demo.Service.UserService;
 
 @RequestMapping("/user")
@@ -26,30 +29,31 @@ public class UserController {
     private UserService userService;
  
     @PostMapping("/")
-    public ResponseEntity<User> createdUser(@Valid @RequestBody User user){
-        User create=this.userService.addUser(user);
-        return new ResponseEntity<>(create,HttpStatus.CREATED);
+    public ResponseEntity<UserDto> createdUser(@Valid @RequestBody UserDto user){
+        UserDto create=this.userService.addUser(user);
+        return new ResponseEntity<UserDto>(create,HttpStatus.CREATED);
     }
 
 
     @PutMapping("/{userId}")
-    public ResponseEntity<User> updateUser(@Valid @RequestBody User user, @PathVariable Integer userId){
-           User upUser= this.userService.updateUser(user, userId);
+    public ResponseEntity<UserDto> updateUser(@Valid @RequestBody UserDto user, @PathVariable Integer userId){
+           UserDto upUser= this.userService.updateUser(user, userId);
    
            return ResponseEntity.ok(upUser);
     }
     
     @DeleteMapping("/{userId}")
-    public void deluser(@PathVariable("userId") Integer userId){
+    public ResponseEntity<ApiResponse> deluser(@PathVariable("userId") Integer userId){
         this.userService.delUser(userId);
+        return new ResponseEntity<>(new ApiResponse("User deleted",true),HttpStatus.OK);
     }
 
     @GetMapping("/")
-    public ResponseEntity<List<User>> getAll(){
+    public ResponseEntity<List<UserDto>> getAll(){
         return ResponseEntity.ok(this.userService.getAll());
     }
     @GetMapping("/{userId}")
-    public ResponseEntity<User> getSingle(@PathVariable Integer userId){
+    public ResponseEntity<UserDto> getSingle(@PathVariable Integer userId){
         return ResponseEntity.ok(this.userService.getUserById(userId));
     }
     
