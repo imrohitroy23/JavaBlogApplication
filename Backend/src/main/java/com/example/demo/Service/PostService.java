@@ -2,6 +2,8 @@ package com.example.demo.Service;
 
 import com.example.demo.Model.Post;
 import com.example.demo.Payloads.PostDto;
+import com.example.demo.Payloads.PostResponse;
+
 import java.util.List;
 
 public interface PostService {
@@ -11,7 +13,7 @@ public interface PostService {
 
   void deletePost(Integer postId);
 
-  List<PostDto> getAllPost();
+  PostResponse getAllPost( Integer pageNumber, Integer pageSize, String sortBy, String sortDir);
 
   PostDto getPostById(Integer postId);
 
