@@ -2,7 +2,6 @@ package com.example.demo.Model;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,35 +13,36 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-
 @Entity
-@Table(name="categories")
+@Table(name = "categories")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class Category {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer categoryId;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Integer categoryId;
 
-    @Column(name="title",length = 100,nullable = false)
-    @NotBlank
-    @Size(min=4)
-    private String categoryTitle;
+  @Column(name = "title", length = 100, nullable = false)
+  @NotBlank
+  @Size(min = 4)
+  private String categoryTitle;
 
-    @Column(name="description")
-    @NotBlank
-    @Size(min=4)
-    private String categoryDescription;
+  @Column(name = "description")
+  @NotBlank
+  @Size(min = 4)
+  private String categoryDescription;
 
-    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<Post> posts=new ArrayList<>();
-    
+  @OneToMany(
+    mappedBy = "category",
+    cascade = CascadeType.ALL,
+    fetch = FetchType.LAZY
+  )
+  private List<Post> posts = new ArrayList<>();
 }

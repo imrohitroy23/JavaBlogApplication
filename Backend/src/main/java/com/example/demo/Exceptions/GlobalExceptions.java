@@ -24,7 +24,9 @@ public class GlobalExceptions {
   }
 
   @ExceptionHandler(TransactionSystemException.class)
-  public ResponseEntity<ApiResponse> handleTransactionSystemException(TransactionSystemException ex) {
+  public ResponseEntity<ApiResponse> handleTransactionSystemException(
+    TransactionSystemException ex
+  ) {
     String msg = ex.getMessage();
     ApiResponse apiResponse = new ApiResponse(msg, false);
 

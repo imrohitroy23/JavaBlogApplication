@@ -1,7 +1,6 @@
 package com.example.demo.Model;
 
 import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,34 +10,35 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
-
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name="post")
+@Table(name = "post")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class Post {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer postId;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Integer postId;
 
-    @NotBlank
-    private String title;
-    @Column(length=1000)
-    private String content;
-    private String imageName;
-    private Date addedDate;
-    @ManyToOne
-    @JoinColumn(name="category_id")
-    private Category category;
-    @ManyToOne
-    private User user;
+  @NotBlank
+  private String title;
 
+  @Column(length = 1000)
+  private String content;
+
+  private String imageName;
+  private Date addedDate;
+
+  @ManyToOne
+  @JoinColumn(name = "category_id")
+  private Category category;
+
+  @ManyToOne
+  private User user;
 }

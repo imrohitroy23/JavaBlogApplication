@@ -10,6 +10,6 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ApiResponse {
-    private String messgae;
-    private boolean success;
+  private String messgae;
+  private boolean success;
 }
