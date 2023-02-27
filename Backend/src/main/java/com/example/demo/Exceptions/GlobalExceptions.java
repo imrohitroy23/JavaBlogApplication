@@ -10,6 +10,7 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 
 @RestControllerAdvice
 public class GlobalExceptions {
@@ -32,6 +33,17 @@ public class GlobalExceptions {
 
     return new ResponseEntity<ApiResponse>(apiResponse, HttpStatus.NOT_FOUND);
   }
+  
+  @ExceptionHandler(MethodArgumentTypeMismatchException.class)
+  public ResponseEntity<ApiResponse> handleMethodArgumentTypeMismatchException(
+    MethodArgumentTypeMismatchException ex
+  ) {
+    String msg = ex.getMessage();
+    ApiResponse apiResponse = new ApiResponse(msg, false);
+
+    return new ResponseEntity<ApiResponse>(apiResponse, HttpStatus.NOT_FOUND);
+  }
+
 
   @ExceptionHandler(MethodArgumentNotValidException.class)
   public ResponseEntity<Map<String, String>> handleMethodExcception(

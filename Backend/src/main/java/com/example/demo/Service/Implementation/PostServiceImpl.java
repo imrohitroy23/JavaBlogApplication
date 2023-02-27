@@ -90,8 +90,15 @@ public class PostServiceImpl implements PostService {
   }
 
   @Override
-  public PostResponse getAllPost(Integer pageNumber, Integer pageSize, String sortBy, String sortDir) {
-    Sort  sort=sortDir.equals("asc")?Sort.by(sortBy).ascending(): Sort.by(sortBy).descending();
+  public PostResponse getAllPost(
+    Integer pageNumber,
+    Integer pageSize,
+    String sortBy,
+    String sortDir
+  ) {
+    Sort sort = sortDir.equals("asc")
+      ? Sort.by(sortBy).ascending()
+      : Sort.by(sortBy).descending();
 
     Pageable p = PageRequest.of(pageNumber, pageSize, sort);
     Page<Post> pagePost = this.postrepo.findAll(p);
@@ -155,8 +162,12 @@ public class PostServiceImpl implements PostService {
   @Override
   public List<PostDto> searchPost(String keywords) {
     // TODO Auto-generated method stub
-    throw new UnsupportedOperationException(
-      "Unimplemented method 'searchPost'"
-    );
+    List<Post> posts = this.postrepo.searchByTitle("%"+keywords+"%");
+    List<PostDto> pp = posts
+      .stream()
+      .map(p -> this.modelmap.map(p, PostDto.class))
+      .collect(Collectors.toList());
+
+    return pp;
   }
 }
