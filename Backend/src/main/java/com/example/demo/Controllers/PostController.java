@@ -1,7 +1,6 @@
 package com.example.demo.Controllers;
 
 import com.example.demo.Configuration.AppConstansts;
-import com.example.demo.Model.Post;
 import com.example.demo.Payloads.ApiResponse;
 import com.example.demo.Payloads.PostDto;
 import com.example.demo.Payloads.PostResponse;
@@ -9,7 +8,6 @@ import com.example.demo.Service.FileService;
 import com.example.demo.Service.PostService;
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.http.HttpResponse;
 import java.util.List;
 import javax.servlet.http.HttpServletResponse;
 import org.hibernate.engine.jdbc.StreamUtils;

@@ -1,11 +1,10 @@
 package com.example.demo.Controllers;
 
-import com.example.demo.Model.User;
 import com.example.demo.Payloads.ApiResponse;
 import com.example.demo.Payloads.UserDto;
 import com.example.demo.Service.UserService;
 import java.util.List;
-import java.util.Map;
+
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

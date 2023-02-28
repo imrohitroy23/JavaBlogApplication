@@ -4,7 +4,6 @@ import com.example.demo.Exceptions.ResourceNotFoundException;
 import com.example.demo.Model.Category;
 import com.example.demo.Model.Post;
 import com.example.demo.Model.User;
-import com.example.demo.Payloads.CategoryDto;
 import com.example.demo.Payloads.PostDto;
 import com.example.demo.Payloads.PostResponse;
 import com.example.demo.Repository.CategoryRepo;

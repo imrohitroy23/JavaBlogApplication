@@ -6,7 +6,7 @@ import com.example.demo.Payloads.UserDto;
 import com.example.demo.Repository.UserRepo;
 import com.example.demo.Service.UserService;
 import java.util.List;
-import java.util.stream.Collector;
+
 import java.util.stream.Collectors;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;

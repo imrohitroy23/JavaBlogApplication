@@ -1,6 +1,6 @@
 package com.example.demo.Service;
 
-import com.example.demo.Model.Post;
+
 import com.example.demo.Payloads.PostDto;
 import com.example.demo.Payloads.PostResponse;
 

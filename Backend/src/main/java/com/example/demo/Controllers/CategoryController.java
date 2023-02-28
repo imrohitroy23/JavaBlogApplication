@@ -1,6 +1,6 @@
 package com.example.demo.Controllers;
 
-import com.example.demo.Model.Category;
+
 import com.example.demo.Payloads.CategoryDto;
 import com.example.demo.Service.CategoryService;
 import java.util.List;
