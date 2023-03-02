@@ -1,5 +1,8 @@
 package com.example.demo.Payloads;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,4 +18,5 @@ public class UserDto {
   private String email;
   private String password;
   private String about;
+  private Set<RoleDto> roles=new HashSet<>();
 }

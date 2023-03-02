@@ -1,8 +1,11 @@
 package com.example.demo.Service.Implementation;
 
+import com.example.demo.Configuration.AppConstansts;
 import com.example.demo.Exceptions.ResourceNotFoundException;
+import com.example.demo.Model.Role;
 import com.example.demo.Model.User;
 import com.example.demo.Payloads.UserDto;
+import com.example.demo.Repository.Rolerepo;
 import com.example.demo.Repository.UserRepo;
 import com.example.demo.Service.UserService;
 import java.util.List;
@@ -10,12 +13,19 @@ import java.util.List;
 import java.util.stream.Collectors;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
 public class UserImpl implements UserService {
   @Autowired
   private UserRepo userRepo;
+
+  @Autowired
+  private PasswordEncoder passwordEncoder;
+
+  @Autowired
+  private Rolerepo rolerepo;
 
   @Autowired
   private ModelMapper modelMapper;
@@ -80,5 +90,17 @@ public class UserImpl implements UserService {
     // userDto.setName(user.getName());
     // userDto.setPassword(user.getPassword());
     return userDto;
+  }
+
+  @Override
+  public UserDto RegisterUser(UserDto userDto) {
+   
+  User user=this.modelMapper.map(userDto,User.class);
+  user.setPassword(this.passwordEncoder.encode(user.getPassword()));
+  Role role=this.rolerepo.findById(AppConstansts.NORMAL_USER).get();
+    user.getRoles().add(role);
+    User newuser=this.userRepo.save(user);
+    return this.modelMapper.map(newuser,UserDto.class);
+
   }
 }
