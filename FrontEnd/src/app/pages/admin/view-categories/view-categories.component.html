@@ -1,0 +1,32 @@
+<mat-card >
+    <div class="card-body ">
+
+    <h1 class="text-center">All Categories</h1>
+  <ul class="list-group"  *ngFor="let c of categories">
+
+    <li class="list-group-item mt-2 "><mat-icon>category</mat-icon> {{ c.categoryTitle }}   <br>
+        {{c.categoryDescription}}
+    </li>
+
+    <button class=" mb20" mat-raised-button color="accent" (click)="deleteCat(c.categoryId)">
+      Delete
+     </button>
+     <button
+     class="mr20"
+     [routerLink]="'/admin/category/'+c.categoryId"
+     mat-stroked-button
+     color="accent"
+   >
+     Update
+   </button>
+  </ul>
+
+  <div class="container text-center mt20 mb20">
+
+    <button routerLink="/admin/add-category" mat-raised-button color="accent">
+      Add New Category
+    </button>
+
+  </div>
+</div>
+</mat-card>

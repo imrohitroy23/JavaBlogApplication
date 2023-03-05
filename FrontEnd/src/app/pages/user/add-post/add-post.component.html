@@ -1,0 +1,64 @@
+<mat-card>
+  <h1 class="text-center mt20">Add New Post</h1>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 offset-md-2">
+        <form (ngSubmit)="onSuit()" >
+          <mat-form-field class="w100" appearance="outline">
+            <mat-label>Enter Title</mat-label>
+            <input [(ngModel)]="posts.title"
+              type="text"
+              name="title"
+              required
+              matInput
+              placeholder="Enter Title"
+            />
+          </mat-form-field>
+          <mat-form-field class="w100" appearance="outline">
+            <mat-label>Enter Content</mat-label>
+            <textarea [(ngModel)]="posts.content"
+              type="text"
+              name="content"
+              required
+              rows="4"
+              matInput
+              placeholder="Enter Description"
+            ></textarea>
+          </mat-form-field>
+
+          <!-- <div class="mb-3">
+            <label for="formFileMultiple" class="form-label">Multiple files input example</label>
+            <input class="form-control" type="file" id="formFileMultiple" multiple>
+          </div> -->
+
+
+          <!-- active field -->
+          <div class="row">
+          <div class="col-md-6">
+          <!-- //select a category -->
+          <mat-form-field appearance="fill">
+            <mat-label>Categories</mat-label>
+            <mat-select name="category" [(ngModel)]="posts.category.categoryId">
+              <mat-option *ngFor="let c of category" [value]="c.categoryId">
+                {{ c.categoryTitle }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          </div>
+          </div>
+          <div class="container text-center mt20 mb20">
+            <button
+                routerLink="/admin/add-quiz/"
+            mat-raised-button
+            color="accent"
+          >
+            Add New Post
+          </button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</mat-card>
+{{posts|json}}
