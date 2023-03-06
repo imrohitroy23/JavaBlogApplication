@@ -1,81 +1,78 @@
-<div class="bootstrap-wrapper">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <mat-card class="mt20">
-          <mat-card-header>
-            <!-- heading -->
-            <mat-card-title>
-              Read the instructions of this page carefully
-            </mat-card-title>
-            <mat-card-subtitle> One step more to go </mat-card-subtitle>
-          </mat-card-header>
+<!--
+<div class="row">
+  <div class="col-md-3">
+    <app-sidebar-user></app-sidebar-user>
+  </div>
+  <div class="col-md-9">
 
-          <mat-card-content>
-           <ng-container *ngIf="quiz">
-            <!-- content  -->
+      <router-outlet></router-outlet>
+  </div>
+</div> -->
+<br>
+<div class="card"   >
+  <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+  <div class="card-body" *ngFor="let p of posts.content; let i=index">
+    <h5 class="card-title">{{p.title}}</h5>
+    <p class="card-text">{{p.content}}</p>
+    <a href="#" class="btn btn-primary">Read More</a>
+  </div>
 
-            <h1>{{ quiz.title }}</h1>
-            <p>{{ quiz.description }}</p>
+</div>
 
-            <mat-divider></mat-divider>
-            <br />
-            <h1>Important Instructions</h1>
+  <!-- //error aa raha kyuki bhut saara quiz me hum title and ctaegory nhi daale hai -->
+<!-- <mat-card *ngFor="let q of posts">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>
+        {{ q.title }}
+      </mat-card-title>
+      <mat-card-subtitle>
+        {{ q.category.title }}
+      </mat-card-subtitle>
+    </mat-card-header>
 
-            <ul>
-              <li>This quiz is only for practice purpose.</li>
+    <mat-card-content>
+      <p>{{ q.description }}</p>
+    </mat-card-content>
+    <div class="container mb20">
+      <button
+        [routerLink]="'/admin/view-questions/' + q.qid + '/' + q.title"
+        mat-flat-button
+        color="accent"
+      >
+        Question
+      </button>
+      <button class="ml20" mat-stroked-button color="accent">
+        Max Marks {{ q.maxMarks }}
+      </button>
+      <button class="ml20" mat-stroked-button color="accent">
+        Max Questions {{ q.noofqsns }}
+      </button>
+      <button
+        class="ml20"
+        [routerLink]="'/admin/quiz/' + q.qid"
+        mat-stroked-button
+        color="accent"
+      >
+        Update
+      </button>
+      <button class="ml20" mat-stroked-button color="accent">
+        Attempts
+      </button>
+      <button
+        class="ml20"
+        mat-raised-button
+        color="warn"
 
-              <!-- Let the time of each questions is  2 minutes -->
-              <li>
-                You have to submit quiz with in
-                <b> {{ quiz.noofqsns * 2 }} Minutes.</b>
-              </li>
-              <li>You can attempt the quiz any number of time .</li>
-              <li>
-                There are <b>{{ quiz.noofqsns }} questions</b> in this
-                quiz.
-              </li>
-              <li>
-                Each questions carries
-                <b>{{ quiz.maxMarks / quiz.noofqsns }} marks</b>. No
-                negative marking for wrong ones.
-              </li>
-              <li>All questions is of MCQ Types.</li>
-            </ul>
-
-            <mat-divider></mat-divider>
-            <br />
-            <h1>Attempting Quiz</h1>
-            <ul>
-              <li>Click <b>Start Quiz</b> button to start the quiz</li>
-              <li>
-                The time will start the moment you click the Start Test button.
-              </li>
-              <li>
-                You can not resume this quiz, if interrupted due to any reason.
-              </li>
-              <li>Scroll downl to move to next question.</li>
-              <li>Click on Submit Quiz button on completion of the quiz.</li>
-              <li>
-                Report of the test is automatically generated in the form of PDF
-                copy
-              </li>
-            </ul>
-          </ng-container>
-          </mat-card-content>
-          <mat-card-actions class="text-center">
-            <!-- actions -->
-            <button
-              (click)="startQuiz()"
-
-              mat-raised-button
-              color="primary"
-            >
-              Start QUIZ
-            </button>
-          </mat-card-actions>
-        </mat-card>
-      </div>
+      >
+        Delete
+      </button>
     </div>
+  </mat-card>
+  <div class="container text-center mt20 mb20">
+    <button routerLink="/admin/add-quiz" mat-raised-button color="accent">
+      Add New Quiz
+    </button>
   </div>
 </div>
+-->

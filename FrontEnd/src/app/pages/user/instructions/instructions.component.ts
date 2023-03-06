@@ -10,36 +10,25 @@ import Swal from 'sweetalert2'
 })
 export class InstructionsComponent  {
  qid:any
-  quiz:any
+  posts:any=[{
+    content:[],
+    lastPage:true,
+pageNumber:0,
+pageSize:10,
+totalElements:8,
+totalPages:0
+  }
+]
   constructor(private  _route:ActivatedRoute, private _router:Router , private _quiz:QuizService) {}
 
   ngOnInit(): void {
-        this.qid=this._route.snapshot.params["qid"]
-    this._quiz.getQuiz(this.qid).subscribe((data:any)=>{
-      console.log(data)
-      this.quiz=data
-      console.log("Working fine")
-    },
-    (error:any)=>{
-      alert("error in loading check instruction.ts")
+    this._quiz.getAllPosts().subscribe((data)=>{
+      this.posts=data
+      console.log(this.posts)
+    },(error)=>{
+      console.log(error)
     })
   }
 //error in this ts file and html file
 
-startQuiz() {
-  Swal.fire({
-    title: 'Do you want to start the quiz?',
-
-    showCancelButton: true,
-    confirmButtonText: `Start`,
-    icon: 'info',
-  }).then((result) => {
-    /* Read more about isConfirmed, isDenied below */
-    if (result.isConfirmed) {
-      this._router.navigate(['/start/' + this.qid]);
-    } else if (result.isDenied) {
-      Swal.fire('Changes are not saved', '', 'info');
-    }
-  });
-}
 }

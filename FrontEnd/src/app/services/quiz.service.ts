@@ -20,6 +20,9 @@ export class QuizService {
   public getQuiz(qid: any) {
     return this._http.get(`${baseUrl}/posts/${qid}`)
   }
+  public getAllPosts(){
+    return this._http.get(`${baseUrl}/posts/posts/`)
+  }
 
   public updateQuiz(quiz: any) {
     return this._http.put(`${baseUrl}/posts/`, quiz)

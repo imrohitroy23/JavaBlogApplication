@@ -92,6 +92,11 @@ const routes: Routes = [
     canActivate: [NormalGuard],
     children: [
       {
+        path: 'load/:categoryId',
+        component: LoadQuizComponent,
+
+      },
+      {
         path: 'profile',
         component: ProfileComponent,
       },
@@ -99,13 +104,9 @@ const routes: Routes = [
         path:'add-post',
         component:AddPostComponent
       },
+
       {
-        path: 'load/:categoryId',
-        component: LoadQuizComponent,
-        pathMatch:'full'
-      },
-      {
-        path: 'instructions/:qid',
+        path: 'instructions',
         component: InstructionsComponent,
       },
     ],
