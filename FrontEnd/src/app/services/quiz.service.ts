@@ -14,14 +14,34 @@ export class QuizService {
     return this._http.post(`${baseUrl}/posts/user/${userId}/category/${categoryId}/posts`, quiz)
   }
   public deleteQuiz(qid: any) {
-    return this._http.delete(`${baseUrl}/posts/${qid}`)
+    return this._http.delete(`${baseUrl}/posts/posts/${qid}`)
   }
+public updateposts(posts:any,pid:any){
+  return this._http.put(`${baseUrl}/posts/posts/${pid}`,posts)
+}
+  public upload(pid: any) {
+    return this._http.post(`${baseUrl}/posts/post/image/upload/${pid}`,pid)
+  }
+public getPostsbyId(pid:any){
+  return this._http.get(`${baseUrl}/posts/posts/${pid}`)
+}
+
+public getuser(){
+  return this._http.get(`${baseUrl}/user/`)
+
+}
+public delUser(cid:any){
+  return this._http.delete(`${baseUrl}/user/${cid}`)
+}
 
   public getQuiz(qid: any) {
     return this._http.get(`${baseUrl}/posts/${qid}`)
   }
   public getAllPosts(){
-    return this._http.get(`${baseUrl}/posts/posts/`)
+    return this._http.get(`${baseUrl}/posts/posts`)
+  }
+  public getAllPosts2(pageNumber:any, pageSize:any){
+    return this._http.get(`${baseUrl}/posts/posts?pageNumber=${pageNumber}&pageSize=${pageSize}`)
   }
 
   public updateQuiz(quiz: any) {

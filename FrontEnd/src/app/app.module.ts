@@ -43,7 +43,9 @@ import { StartComponent } from './pages/user/start/start.component';
 import { NgxUiLoaderModule,NgxUiLoaderHttpModule} from 'ngx-ui-loader';
 import { UpdateCategoryComponent } from './pages/admin/update-category/update-category.component';
 import { AddPostComponent } from './pages/user/add-post/add-post.component';
-
+import {MatPaginatorModule} from '@angular/material/paginator';
+import { PostspageComponent } from './pages/user/postspage/postspage.component';
+import { GetcatComponent } from './pages/user/getcat/getcat.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -71,6 +73,8 @@ import { AddPostComponent } from './pages/user/add-post/add-post.component';
     StartComponent,
      UpdateCategoryComponent,
      AddPostComponent,
+     PostspageComponent,
+     GetcatComponent,
 
 
   ],
@@ -83,7 +87,7 @@ import { AddPostComponent } from './pages/user/add-post/add-post.component';
     MatSnackBarModule,
     MatIconModule,
     MatCardModule,
-
+    MatPaginatorModule,
     MatRadioModule,
     MatToolbarModule,
     MatProgressSpinnerModule,

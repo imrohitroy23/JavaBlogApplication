@@ -18,7 +18,9 @@ constructor(private _cat:CategoryService,
     categoryDescription:""
   }
 ngOnInit():void{
+
   this.category.categoryId=this._route.snapshot.params["categoryId"]
+
   console.log(this.category.categoryId)
 
   this._cat.getCat(this.category.categoryId).subscribe((data:any)=>{

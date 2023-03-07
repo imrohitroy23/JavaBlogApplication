@@ -12,23 +12,25 @@ import Swal from 'sweetalert2';
   styleUrls: ['./add-post.component.css']
 })
 export class AddPostComponent {
-  posts={
+  selectedFiles?: FileList;
+   posts={
 
-    title: "sdfsdfs",
-    content: "sddasafss",
+    title: "",
+    content: "",
+    imageName:"",
     category: {
-      categoryId: 4,
+      categoryId:"",
     },
     comments: [],
     user: {
-      id: 12
+      id: ""
 
     }
   }
   category = [
     {
-      categoryId:22 ,
-      categoryTitle: 'programming',
+      categoryId:"" ,
+      categoryTitle: '',
     },
 
   ]
@@ -44,10 +46,6 @@ export class AddPostComponent {
   // }
 
   constructor(public login:LoginService, private _cat: CategoryService,private _snack:MatSnackBar,private _quiz:QuizService,private _route:ActivatedRoute) {}
-
-
-
-
   ngOnInit(): void {
 
 
@@ -82,7 +80,7 @@ onSuit(){
 
   this._quiz.addQuiz(this.posts,this.posts.user.id,this.posts.category.categoryId).subscribe(
     (data:any)=>{
-      Swal.fire('Success', 'quiz is added', 'success');
+      Swal.fire('Success', 'Post is added', 'success');
     },
     (error)=>{
       Swal.fire('Error!! ', 'Error while adding quiz', 'error');
@@ -90,5 +88,6 @@ onSuit(){
     }
   )
 }
+
 }
 

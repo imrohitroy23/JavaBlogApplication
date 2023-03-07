@@ -1,0 +1,41 @@
+<div class="bootstrap-wrapper">
+  <div class="container-fluid">
+    <h1 class="mt20">Available Posts</h1>
+    <div class="row mt20" *ngIf="post">
+      <mat-card class="mb20">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image">hello</div>
+          <mat-card-title>
+            {{ post.title }}
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p class="truncate">{{ post.content }}</p>
+        </mat-card-content>
+        <mat-card-content>
+          <p class="truncate">{{ post.addedDate }}</p>
+        </mat-card-content>
+      </mat-card>
+      <div *ngIf="login.getUser().id == post.user.id">
+        <div class="row">
+          <button
+            class="mb20"
+            mat-raised-button
+            color="accent"
+            (click)="deleteQuiz(post.id)"
+          >
+            Delete
+          </button>
+          <button
+            class="mr20"
+            [routerLink]="'/user-dashboard/update/' + post.id"
+            mat-stroked-button
+            color="accent"
+          >
+            Update
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

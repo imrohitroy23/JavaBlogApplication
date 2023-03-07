@@ -15,8 +15,10 @@ import { LoginComponent } from './pages/login/login.component'
 import { ProfileComponent } from './pages/profile/profile.component'
 import { SignupComponent } from './pages/signup/signup.component'
 import { AddPostComponent } from './pages/user/add-post/add-post.component'
+import { GetcatComponent } from './pages/user/getcat/getcat.component'
 import { InstructionsComponent } from './pages/user/instructions/instructions.component'
 import { LoadQuizComponent } from './pages/user/load-quiz/load-quiz.component'
+import { PostspageComponent } from './pages/user/postspage/postspage.component'
 import { StartComponent } from './pages/user/start/start.component'
 import { UserdashboardComponent } from './pages/user/userdashboard/userdashboard.component'
 import { AdminGuard } from './services/admin.guard'
@@ -60,7 +62,7 @@ const routes: Routes = [
         component: UpdateCategoryComponent,
       },
       {
-        path: 'posts',
+        path: 'users',
         component: ViewQuizzesComponent,
       },
       {
@@ -96,6 +98,7 @@ const routes: Routes = [
         component: LoadQuizComponent,
 
       },
+
       {
         path: 'profile',
         component: ProfileComponent,
@@ -109,13 +112,19 @@ const routes: Routes = [
         path: 'instructions',
         component: InstructionsComponent,
       },
+      {
+        path:'update/:postId',
+        component:StartComponent
+
+      },
+      {
+        path:'posting/:postId',
+        component:PostspageComponent
+
+      }
     ],
   },
-  {
-    path: 'start/:qid',
-    component: StartComponent,
-    canActivate: [NormalGuard],
-  },
+
 ]
 
 @NgModule({
