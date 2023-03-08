@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { QuizService } from 'src/app/services/quiz.service';
 
 @Component({
   selector: 'app-getcat',
@@ -6,5 +8,20 @@ import { Component } from '@angular/core';
   styleUrls: ['./getcat.component.css']
 })
 export class GetcatComponent {
-post:any
+comment={
+
+  content:""
+}
+pid:any
+constructor(private quiz:QuizService,private _route:ActivatedRoute){}
+ngOnInit():void{
+  this.pid = this._route.snapshot.params['postId'];
+  console.log(this.pid)
+}
+formSubmit(){
+  this.quiz.postComm(this.comment,this.pid).subscribe((data:any)=>{
+    this.comment=data
+  })
+}
+
 }

@@ -34,8 +34,7 @@ import { AddQuizComponent } from './pages/admin/add-quiz/add-quiz.component';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSelectModule } from '@angular/material/select';
 import { UpdateQuizComponent } from './pages/admin/update-quiz/update-quiz.component';
-import { ViewQuestionsComponent } from './pages/admin/view-questions/view-questions.component';
-import { AddQuestionComponent } from './pages/admin/add-question/add-question.component';
+
 import { LoadQuizComponent } from './pages/user/load-quiz/load-quiz.component';
 import { InstructionsComponent } from './pages/user/instructions/instructions.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
@@ -65,8 +64,7 @@ import { GetcatComponent } from './pages/user/getcat/getcat.component';
     ViewQuizzesComponent,
     AddQuizComponent,
     UpdateQuizComponent,
-    ViewQuestionsComponent,
-    AddQuestionComponent,
+
     LoadQuizComponent,
     InstructionsComponent,
 

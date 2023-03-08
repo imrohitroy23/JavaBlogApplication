@@ -1,28 +1,27 @@
-import { Component, NgModule } from '@angular/core'
-import { RouterModule, Routes } from '@angular/router'
-import { AddCategoriesComponent } from './pages/admin/add-categories/add-categories.component'
-import { AddQuestionComponent } from './pages/admin/add-question/add-question.component'
-import { AddQuizComponent } from './pages/admin/add-quiz/add-quiz.component'
-import { DashboardComponent } from './pages/admin/dashboard/dashboard.component'
-import { UpdateCategoryComponent } from './pages/admin/update-category/update-category.component'
-import { UpdateQuizComponent } from './pages/admin/update-quiz/update-quiz.component'
-import { ViewCategoriesComponent } from './pages/admin/view-categories/view-categories.component'
-import { ViewQuestionsComponent } from './pages/admin/view-questions/view-questions.component'
-import { ViewQuizzesComponent } from './pages/admin/view-quizzes/view-quizzes.component'
-import { WelcomeComponent } from './pages/admin/welcome/welcome.component'
-import { HomeComponent } from './pages/home/home.component'
-import { LoginComponent } from './pages/login/login.component'
-import { ProfileComponent } from './pages/profile/profile.component'
-import { SignupComponent } from './pages/signup/signup.component'
-import { AddPostComponent } from './pages/user/add-post/add-post.component'
-import { GetcatComponent } from './pages/user/getcat/getcat.component'
-import { InstructionsComponent } from './pages/user/instructions/instructions.component'
-import { LoadQuizComponent } from './pages/user/load-quiz/load-quiz.component'
-import { PostspageComponent } from './pages/user/postspage/postspage.component'
-import { StartComponent } from './pages/user/start/start.component'
-import { UserdashboardComponent } from './pages/user/userdashboard/userdashboard.component'
-import { AdminGuard } from './services/admin.guard'
-import { NormalGuard } from './services/normal.guard'
+import { Component, NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { AddCategoriesComponent } from './pages/admin/add-categories/add-categories.component';
+import { AddQuizComponent } from './pages/admin/add-quiz/add-quiz.component';
+import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
+import { UpdateCategoryComponent } from './pages/admin/update-category/update-category.component';
+import { UpdateQuizComponent } from './pages/admin/update-quiz/update-quiz.component';
+import { ViewCategoriesComponent } from './pages/admin/view-categories/view-categories.component';
+
+import { ViewQuizzesComponent } from './pages/admin/view-quizzes/view-quizzes.component';
+import { WelcomeComponent } from './pages/admin/welcome/welcome.component';
+import { HomeComponent } from './pages/home/home.component';
+import { LoginComponent } from './pages/login/login.component';
+import { ProfileComponent } from './pages/profile/profile.component';
+import { SignupComponent } from './pages/signup/signup.component';
+import { AddPostComponent } from './pages/user/add-post/add-post.component';
+import { GetcatComponent } from './pages/user/getcat/getcat.component';
+import { InstructionsComponent } from './pages/user/instructions/instructions.component';
+import { LoadQuizComponent } from './pages/user/load-quiz/load-quiz.component';
+import { PostspageComponent } from './pages/user/postspage/postspage.component';
+import { StartComponent } from './pages/user/start/start.component';
+import { UserdashboardComponent } from './pages/user/userdashboard/userdashboard.component';
+import { AdminGuard } from './services/admin.guard';
+import { NormalGuard } from './services/normal.guard';
 
 const routes: Routes = [
   {
@@ -77,15 +76,6 @@ const routes: Routes = [
         path: 'quiz/:qid',
         component: UpdateQuizComponent,
       },
-
-      {
-        path: 'view-questions/:qid/:title',
-        component: ViewQuestionsComponent,
-      },
-      {
-        path: 'add-question/:qid/:title',
-        component: AddQuestionComponent,
-      },
     ],
   },
   {
@@ -96,16 +86,18 @@ const routes: Routes = [
       {
         path: 'load/:categoryId',
         component: LoadQuizComponent,
-
       },
-
+      {
+        path: 'comment/:postId',
+        component: GetcatComponent,
+      },
       {
         path: 'profile',
         component: ProfileComponent,
       },
       {
-        path:'add-post',
-        component:AddPostComponent
+        path: 'add-post',
+        component: AddPostComponent,
       },
 
       {
@@ -113,19 +105,16 @@ const routes: Routes = [
         component: InstructionsComponent,
       },
       {
-        path:'update/:postId',
-        component:StartComponent
-
+        path: 'update/:postId',
+        component: StartComponent,
       },
       {
-        path:'posting/:postId',
-        component:PostspageComponent
-
-      }
+        path: 'posting/:postId',
+        component: PostspageComponent,
+      },
     ],
   },
-
-]
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

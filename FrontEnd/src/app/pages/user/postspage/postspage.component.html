@@ -4,7 +4,9 @@
     <div class="row mt20" *ngIf="post">
       <mat-card class="mb20">
         <mat-card-header>
-          <div mat-card-avatar class="example-header-image">hello</div>
+          <div mat-card-avatar class="example-header-image">
+            <mat-icon>assessment</mat-icon>
+          </div>
           <mat-card-title>
             {{ post.title }}
           </mat-card-title>
@@ -12,10 +14,27 @@
         <mat-card-content>
           <p class="truncate">{{ post.content }}</p>
         </mat-card-content>
+        <div *ngIf="post.imageName" class="container">
+          <img
+            mat-card-image
+            src="'http://localhost:8084/posts/post/image/'+ post.imageName"
+            alt="No image"
+          />
+        </div>
         <mat-card-content>
-          <p class="truncate">{{ post.addedDate }}</p>
+          <h5 class="truncate">
+            Added by {{ post.user.name }} on
+            {{ post.addedDate | date: 'yyyy-MM-dd HH:mm:ss' }}
+          </h5>
         </mat-card-content>
+        <div class="row mt20" *ngFor="let p of post.comments; let i = index">
+          Comments
+          <mat-card-content>
+            <p class="truncate">{{ i + 1 }}) {{ p.content }}</p>
+          </mat-card-content>
+        </div>
       </mat-card>
+
       <div *ngIf="login.getUser().id == post.user.id">
         <div class="row">
           <button

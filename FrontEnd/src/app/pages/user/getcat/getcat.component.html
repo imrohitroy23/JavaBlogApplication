@@ -1,32 +1,27 @@
-<div class="bootstrap-wrapper">
-  <div class="container-fluid">
-    <h1 class="mt20">Available Posts</h1>
-    <div class="row mt20" *ngIf="post">
-      <div class="col-md-4" *ngFor="let q of post">
-        <mat-card class="mb20">
-          <mat-card-header>
-            <div mat-card-avatar class="example-header-image"></div>
-            <mat-card-title>
-              {{ q.title }}
-            </mat-card-title>
-          </mat-card-header>
-          <mat-card-content>
-            <p class="truncate">{{ q.content }}</p>
-          </mat-card-content>
-          <mat-card-content>
-            <p class="truncate">{{ q.addedDate }}</p>
-          </mat-card-content>
-          <a   [routerLink]="'/user-dashboard/posting/'+q.id" class="btn btn-primary">Read More</a>
-        </mat-card>
-      </div>
 
-      <div class="col-md-12" *ngIf="post.length == 0">
-        <mat-card>
-          <mat-card-content>
-            <h1>No data in this post</h1>
-          </mat-card-content>
-        </mat-card>
-      </div>
-    </div>
-  </div>
-</div>
+<div class="container mt-5">
+
+        <h1 class="text-center">Post comment</h1>
+        {{ comment | json }}
+
+        <form (ngSubmit)="formSubmit()">
+          <mat-form-field style="width: 100%;" appearance="outline">
+
+            <input
+              [(ngModel)]="comment.content"
+              name="content"
+              required
+              matInput
+              placeholder="Give content"
+            />
+          </mat-form-field>
+
+
+          <div class="container text-center mb-3">
+            <button type="submit" mat-raised-button color="primary">
+              Post
+            </button>
+
+          </div>
+
+        </form>

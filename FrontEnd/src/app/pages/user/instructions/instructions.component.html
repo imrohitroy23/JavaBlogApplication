@@ -11,12 +11,15 @@
 <br>
 Current page {{pp}}
 <h1>Total Blogs </h1>
+<input class="form-control border border-secondary"  id="myInput"  type="text" placeholder="Search..">
+<br>
 <div class="card" style="margin-bottom: 5px;" *ngFor="let p of posts.content; let i=index"   >
   <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
   <div class="card-body" >
     <h1 >{{p.title}}</h1>
     <p class="card-text">{{p.content.substring(0,20)}}</p>
     <a   [routerLink]="'/user-dashboard/posting/'+p.id" class="btn btn-primary">Read More</a>
+    <a   [routerLink]="'/user-dashboard/comment/'+p.id" class="btn btn-primary">Add comment</a>
   </div>
 
 </div>

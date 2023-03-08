@@ -38,7 +38,7 @@ export class LoadQuizComponent implements OnInit {
 
   ngOnInit(): void {
     this.catId=this._route.snapshot.params["categoryId"]
-        console.log('Load specific quiz');3
+        console.log('Load specific quiz');
         this._quiz.getQuizzesOfCategory(this.catId).subscribe(
           (data: any) => {
             this.post = data;

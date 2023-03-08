@@ -33,6 +33,12 @@ public getuser(){
 public delUser(cid:any){
   return this._http.delete(`${baseUrl}/user/${cid}`)
 }
+public sea(key:any){
+  return this._http.get(`${baseUrl}/posts/post/seacrh/${key}`)
+}
+public postComm(post:any,pid:any){
+  return this._http.post(`${baseUrl}/comment/post/${pid}/comment/`,post)
+}
 
   public getQuiz(qid: any) {
     return this._http.get(`${baseUrl}/posts/${qid}`)

@@ -2,7 +2,7 @@ import { LocationStrategy } from '@angular/common'
 import { Component, OnInit } from '@angular/core'
 import { ActivatedRoute } from '@angular/router'
 import { CategoryService } from 'src/app/services/category.service'
-import { QuestionService } from 'src/app/services/question.service'
+
 import { QuizService } from 'src/app/services/quiz.service'
 import Swal from 'sweetalert2'
 
